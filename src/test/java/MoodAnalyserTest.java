@@ -1,20 +1,26 @@
 import com.bridgelabz.MoodAnalyser;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MoodAnalyserTest {
     @Test
-    public void given_SadMood_Should_Return_Sad() {
+    public void givenMessage_WhenSad_ShouldReturnSad() {
         MoodAnalyser moodAnalyser = new MoodAnalyser();
-        String mood = moodAnalyser.analyseMood("I am In a Sad Mood");
-        Assertions.assertEquals("SAD", mood);
-
+        String mood =moodAnalyser.analyseMood("I am in Sad Mood");
+        assertEquals("SAD",mood);
     }
 
     @Test
-    public void given_AnyMood_Should_Return_HAPPY() {
+    public void givenMessage_WhenHappy_ShouldReturnHappy() {
         MoodAnalyser moodAnalyser = new MoodAnalyser();
-        String mood = moodAnalyser.analyseMood("I am in any Mood");
-        Assertions.assertEquals("HAPPY", mood);
+        String mood =moodAnalyser.analyseMood("I am in Happy Mood");
+        assertEquals("HAPPY",mood);
     }
+    @Test
+    public void givenNullMood_ShouldThrowException() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        String mood =moodAnalyser.analyseMood(null);
+        assertEquals("HAPPY",mood);
+    }
+
 }
